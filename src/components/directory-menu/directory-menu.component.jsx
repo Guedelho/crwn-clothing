@@ -52,15 +52,11 @@ class DirectoryMenu extends Component {
                 {
                     sections.map(({
                         id,
-                        size,
-                        title,
-                        imageUrl,
+                        ...otherProps
                     }) => (
                         <MenuItem
                             key={id}
-                            size={size}
-                            title={title}
-                            imageUrl={imageUrl}
+                            {...otherProps}
                         />
                     ))
                 }
