@@ -1,40 +1,22 @@
 import React from 'react';
-import {
-  Route,
-  Switch,
-  withRouter,
-  BrowserRouter as Router,
-} from 'react-router-dom';
-
-import HomePage from './pages/homepage/homepage.component'
+import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
 
-let ShopPage = ({ location }) => {
-  const pageName = location.pathname.split('/')[2];
-
-  return (
-    <div>
-      <h1>{pageName.toUpperCase()} PAGE</h1>
-    </div>
-  );
-}
-
-ShopPage = withRouter(ShopPage);
+import HomePage from './pages/homepage/homepage.component';
+import ShopPage from './pages/shop/shop.component';
+import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
+import Header from './components/header/header.component';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route path="/shop">
-            <ShopPage />
-          </Route>
-        </Switch>
-      </Router>
+    <div>
+      <Header />
+      <Switch>
+        <Route exact path='/' component={HomePage} />
+        <Route path='/shop' component={ShopPage} />
+        <Route path='/signin' component={SignInAndSignUpPage} />
+      </Switch>
     </div>
   );
 }
